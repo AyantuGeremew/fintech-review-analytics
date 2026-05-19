@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-
+import os
 from google_play_scraper import reviews, Sort
 
 
@@ -95,8 +95,16 @@ def to_dataframe(data):
 # SAVE OUTPUT
 # ======================================================
 def save_data(df, filename="bank_reviews_google_play.csv"):
-    df.to_csv(filename, index=False)
-    print(f"\nDataset saved → {filename}")
+    # Ensure the data folder exists
+    os.makedirs("data", exist_ok=True)
+
+    # Create full file path
+    filepath = os.path.join("data", filename)
+
+    # Save CSV inside data folder
+    df.to_csv(filepath, index=False)
+
+    print(f"\nDataset saved → {filepath}")
 
 
 # ======================================================
