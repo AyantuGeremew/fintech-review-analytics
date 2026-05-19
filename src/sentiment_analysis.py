@@ -1,10 +1,12 @@
 import pandas as pd
+import torch
+
 from transformers import pipeline
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 
 # =========================================================
-# 1. LOAD CLEANED DATASET
+# LOAD CLEANED DATASET
 # =========================================================
 def load_dataset(file_path):
     """
@@ -18,7 +20,7 @@ def load_dataset(file_path):
 
 
 # =========================================================
-# 2. LOAD TRANSFORMER MODEL
+# LOAD TRANSFORMER MODEL
 # =========================================================
 def load_transformer_model():
     """
@@ -36,7 +38,7 @@ def load_transformer_model():
 
 
 # =========================================================
-# 3. CLASSIFY SENTIMENT USING DISTILBERT
+# CLASSIFY SENTIMENT USING DISTILBERT
 # =========================================================
 def classify_sentiment_transformer(df, classifier):
     """
@@ -172,9 +174,9 @@ def save_results(df, bank_summary, rating_summary):
     Save analysis outputs.
     """
 
-    df.to_csv("sentiment_analysis_reviews.csv", index=False)
-    bank_summary.to_csv("bank_sentiment_summary.csv", index=False)
-    rating_summary.to_csv("rating_sentiment_summary.csv", index=False)
+    df.to_csv("data/sentiment_analysis_reviews.csv", index=False)
+    bank_summary.to_csv("data/bank_sentiment_summary.csv", index=False)
+    rating_summary.to_csv("data/rating_sentiment_summary.csv", index=False)
 
     print("\n[FILES SAVED]")
     print("Saved:")
