@@ -10,14 +10,14 @@ jobs:
   install-dependencies:
     runs-on: windows-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    #steps:
+      #- name: Checkout repository
+       # uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.11'
+      #- name: Set up Python
+      #  uses: actions/setup-python@v2
+      #  with:
+      #    python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+     # - name: Install dependencies
+      #  run: pip install -r requirements.txt
